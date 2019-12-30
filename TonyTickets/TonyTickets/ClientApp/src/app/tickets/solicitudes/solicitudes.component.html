@@ -1,13 +1,18 @@
 <div class="content-wrapper" style="min-height: 657px;">
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1>Solicitudes</h1>
+    <h1>Mis solicitudes</h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-ticket"></i> Tickets</a></li>
       <li class="active">Solicitudes</li>
     </ol>
+    <br />
+    <a class="btn btn-info btn-social pull-right" [routerLink]='["/solicitudes/captura"]' title="" data-toggle="tooltip" data-original-title="Abrir Solicitud">
+      <i class="fa fa-plus"></i> Abrir Solicitud
+    </a>
+    <br />
   </section>
-
+  <br />
   <!-- Main content -->
   <section class="content">
     <div class="row">
@@ -33,15 +38,15 @@
                   <table id="example3" class="table table-bordered table-striped dataTable no-footer dtr-inline collapsed" role="grid" aria-describedby="example1_info">
                     <thead class="table_header">
                       <tr role="row">
-                        <th class="sorting_asc" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 21px;" aria-sort="ascending" aria-label=": Activar para ordenar la columna de manera descendente"></th>
-                        <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 133px;" aria-label="Nombre: Activar para ordenar la columna de manera ascendente">Nombre</th>
-                        <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 225px;" aria-label="E-mail: Activar para ordenar la columna de manera ascendente">E-mail</th>
-                        <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 71px;" aria-label="N° Ticket: Activar para ordenar la columna de manera ascendente">N° Ticket</th>
-                        <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 107px;" aria-label="Asunto: Activar para ordenar la columna de manera ascendente">Asunto</th>
-                        <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 127px; display: none;" aria-label="Asignado: Activar para ordenar la columna de manera ascendente">Asignado</th>
-                        <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 59px; display: none;" aria-label="Empresa: Activar para ordenar la columna de manera ascendente">Empresa</th>
-                        <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 64px; display: none;" aria-label="Estado: Activar para ordenar la columna de manera ascendente">Estado</th>
-                        <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 74px; display: none;" aria-label=": Activar para ordenar la columna de manera ascendente"></th>
+                        <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 21px;" aria-sort="ascending" aria-label=": Activar para ordenar la columna de manera descendente"></th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 143px;" aria-label="Nombre: Activar para ordenar la columna de manera ascendente">Nombre</th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 240px;" aria-label="E-mail: Activar para ordenar la columna de manera ascendente">E-mail</th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 78px;" aria-label="N° Ticket: Activar para ordenar la columna de manera ascendente">N° Ticket</th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 116px;" aria-label="Asunto: Activar para ordenar la columna de manera ascendente">Asunto</th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 68px;" aria-label="Asignado: Activar para ordenar la columna de manera ascendente">Asignado</th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 64px;" aria-label="Empresa: Activar para ordenar la columna de manera ascendente">Empresa</th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 69px;" aria-label="Estado: Activar para ordenar la columna de manera ascendente">Estado</th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 81px;" aria-label=": Activar para ordenar la columna de manera ascendente"></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -51,12 +56,12 @@
                         <td>carla.bejarano@gmail.com</td>
                         <td>B2019 - 000765</td>
                         <td>IMPRESORAS </td>
-                        <td style="display: none;">SEBASTIAN ANDRADE</td>
-                        <td style="display: none;"><a href="#">ABisoft INC</a></td>
-                        <td style="display: none;">
+                        <td> </td>
+                        <td><a href="#">USUARIO</a></td>
+                        <td>
                           <span class="label label-danger">Con Incidencía</span>
                         </td>
-                        <td style="text-align: center; display: none;">
+                        <td style="text-align: center;">
                           <!-- Split button -->
                           <div class="btn-group">
                             <button type="button" class="btn btn-default">Acción</button>
@@ -77,12 +82,12 @@
                         <td>pablo.barrionuevo@netse.com.ar</td>
                         <td>B2019 - 000764</td>
                         <td>PC NO PRENDE</td>
-                        <td style="display: none;">Javier Gomez Riz gomez</td>
-                        <td style="display: none;"><a href="#">ABisoft INC</a></td>
-                        <td style="display: none;">
+                        <td> </td>
+                        <td><a href="#">USUARIO</a></td>
+                        <td>
                           <span class="label label-danger">Con Incidencía</span>
                         </td>
-                        <td style="text-align: center; display: none;">
+                        <td style="text-align: center;">
                           <!-- Split button -->
                           <div class="btn-group">
                             <button type="button" class="btn btn-default">Acción</button>
@@ -103,12 +108,12 @@
                         <td>sdf@asdad</td>
                         <td>B2019 - 000706</td>
                         <td>polladas</td>
-                        <td style="display: none;">pablo sm</td>
-                        <td style="display: none;"><a href="#">ABisoft INC</a></td>
-                        <td style="display: none;">
+                        <td> </td>
+                        <td><a href="#">USUARIO</a></td>
+                        <td>
                           <span class="label label-danger">Con Incidencía</span>
                         </td>
-                        <td style="text-align: center; display: none;">
+                        <td style="text-align: center;">
                           <!-- Split button -->
                           <div class="btn-group">
                             <button type="button" class="btn btn-default">Acción</button>
@@ -129,12 +134,12 @@
                         <td>sasdasdasd@asdasdasd</td>
                         <td>B2019 - 000686</td>
                         <td>NO ME SIRVE</td>
-                        <td style="display: none;"> </td>
-                        <td style="display: none;"><a href="#">ABisoft INC</a></td>
-                        <td style="display: none;">
+                        <td> </td>
+                        <td><a href="#">USUARIO</a></td>
+                        <td>
                           <span class="label label-danger">Con Incidencía</span>
                         </td>
-                        <td style="text-align: center; display: none;">
+                        <td style="text-align: center;">
                           <!-- Split button -->
                           <div class="btn-group">
                             <button type="button" class="btn btn-default">Acción</button>
@@ -155,12 +160,12 @@
                         <td>kdkd@gmail.com</td>
                         <td>B2019 - 000685</td>
                         <td>Cambio de imagenes</td>
-                        <td style="display: none;"> </td>
-                        <td style="display: none;"><a href="#">ABisoft INC</a></td>
-                        <td style="display: none;">
+                        <td> </td>
+                        <td><a href="#">USUARIO</a></td>
+                        <td>
                           <span class="label label-danger">Con Incidencía</span>
                         </td>
-                        <td style="text-align: center; display: none;">
+                        <td style="text-align: center;">
                           <!-- Split button -->
                           <div class="btn-group">
                             <button type="button" class="btn btn-default">Acción</button>
@@ -181,12 +186,12 @@
                         <td>marco.antonio.ramirez.cruz@gmail.com</td>
                         <td>B2019 - 000683</td>
                         <td>Hhhhhh</td>
-                        <td style="display: none;"> </td>
-                        <td style="display: none;"><a href="#">ABisoft INC</a></td>
-                        <td style="display: none;">
+                        <td> </td>
+                        <td><a href="#">USUARIO</a></td>
+                        <td>
                           <span class="label label-danger">Con Incidencía</span>
                         </td>
-                        <td style="text-align: center; display: none;">
+                        <td style="text-align: center;">
                           <!-- Split button -->
                           <div class="btn-group">
                             <button type="button" class="btn btn-default">Acción</button>
@@ -207,12 +212,12 @@
                         <td>admin@dniperu.online</td>
                         <td>B2019 - 000675</td>
                         <td>asdas</td>
-                        <td style="display: none;"> </td>
-                        <td style="display: none;"><a href="#">ABisoft INC</a></td>
-                        <td style="display: none;">
+                        <td> </td>
+                        <td><a href="#">USUARIO</a></td>
+                        <td>
                           <span class="label label-danger">Con Incidencía</span>
                         </td>
-                        <td style="text-align: center; display: none;">
+                        <td style="text-align: center;">
                           <!-- Split button -->
                           <div class="btn-group">
                             <button type="button" class="btn btn-default">Acción</button>
@@ -233,12 +238,12 @@
                         <td>waptoing7@gmail.com</td>
                         <td>B2019 - 000532</td>
                         <td>444</td>
-                        <td style="display: none;"> </td>
-                        <td style="display: none;"><a href="#">ABisoft INC</a></td>
-                        <td style="display: none;">
+                        <td> </td>
+                        <td><a href="#">USUARIO</a></td>
+                        <td>
                           <span class="label label-danger">Con Incidencía</span>
                         </td>
-                        <td style="text-align: center; display: none;">
+                        <td style="text-align: center;">
                           <!-- Split button -->
                           <div class="btn-group">
                             <button type="button" class="btn btn-default">Acción</button>
@@ -259,12 +264,12 @@
                         <td>waptoing7@gmail.com</td>
                         <td>B2019 - 000530</td>
                         <td>444</td>
-                        <td style="display: none;"> </td>
-                        <td style="display: none;"><a href="#">ABisoft INC</a></td>
-                        <td style="display: none;">
+                        <td> </td>
+                        <td><a href="#">USUARIO</a></td>
+                        <td>
                           <span class="label label-danger">Con Incidencía</span>
                         </td>
-                        <td style="text-align: center; display: none;">
+                        <td style="text-align: center;">
                           <!-- Split button -->
                           <div class="btn-group">
                             <button type="button" class="btn btn-default">Acción</button>

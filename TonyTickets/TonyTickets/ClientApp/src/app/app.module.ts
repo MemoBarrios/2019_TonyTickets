@@ -16,6 +16,7 @@ import { IncidentesComponent } from './tickets/incidentes/incidentes.component';
 import { SolicitudesComponent } from './tickets/solicitudes/solicitudes.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { CapturaComponent } from './tickets/captura/captura.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
     IncidentesComponent,
     SolicitudesComponent,
     ReportesComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    CapturaComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -41,7 +43,9 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
       { path: 'incidentes', component: IncidentesComponent },
       { path: 'solicitudes', component: SolicitudesComponent },
       { path: 'reportes', component: ReportesComponent },
-      { path: 'usuarios', component: UsuariosComponent }
+      { path: 'usuarios', component: UsuariosComponent },
+      { path: 'incidentes/captura', component: CapturaComponent },
+      { path: 'solicitudes/captura', component: CapturaComponent }
     ])
   ],
   providers: [],
