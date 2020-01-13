@@ -10,114 +10,177 @@
   <section class="content">
     <div class="row">
       <div class="col-md-12">
-      <div class="box">
-        <div class="box-header">
-          <!-- <h3 class="box-title">Registro de tickets</h3> -->
+        <div class="box">
+          <div class="box-header">
+            <!-- <h3 class="box-title">Registro de tickets</h3> -->
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <div id="Detalles" class="col-md-3">
+              <div class="row">
+                <label class="label-input100" for="Titulo">Folio: </label>
+              </div>
+              <div class="row">
+                <label class="label-input-det" for="Titulo">123456789</label>
+              </div>
+              <div class="row">
+                <label class="label-input100" for="Titulo">Compañia: </label>
+              </div>
+              <div class="row">
+                <label class="label-input-det" for="Titulo">Tony Tiendas</label>
+              </div>
+              <div class="row">
+                <label class="label-input100" for="Titulo">Usuario: </label>
+              </div>
+              <div class="row">
+                <label class="label-input-det" for="Titulo">Guillermo Barrios Lara</label>
+              </div>
+              <div class="row">
+                <label class="label-input100" for="Titulo">Empleado Asignado: </label>
+              </div>
+              <div class="row">
+                <label class="label-input-det" for="Titulo">Guillermo Barrios Lara</label>
+              </div>
+              <div class="row">
+                <label class="label-input100" for="Titulo">Estatus: </label>
+              </div>
+              <div class="row">
+                <label class="label-input-det" for="Titulo">Abierto</label>
+              </div>
+              <div class="row">
+                <label class="label-input100" for="Titulo">Fecha Creacion: </label>
+              </div>
+              <div class="row">
+                <label class="label-input-det" for="Titulo">13/01/2020</label>
+              </div>
+              <div class="row">
+                <label class="label-input100" for="Titulo">Fecha Cerrado: </label>
+              </div>
+              <div class="row">
+                <label class="label-input-det" for="Titulo"></label>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-10">
+                  <label class="label-input100" for="Titulo">Titulo *</label>
+                  <div class="wrap-input100 validate-input">
+                    <input id="Titulo" class="input-form" type="text" name="Titulo" placeholder="Escriba el titulo de su incidente">
+                    <span class="focus-input100"></span>
+                  </div>
+                </div>
+                <div class="col-md-2"></div>
+              </div>
+              <div class="row">
+                <div class="col-md-5">
+                  <label class="label-input100" for="Prioridad">Departamento *</label>
+                  <div class="content-select">
+                    <select>
+                      <option>Option 1</option>
+                      <option>Option 2</option>
+                      <option>Option 3</option>
+                    </select>
+                    <i></i>
+                  </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                  <label class="label-input100" for="Prioridad">Sucursal *</label>
+                  <div class="content-select">
+                    <select>
+                      <option>Option 1</option>
+                      <option>Option 2</option>
+                      <option>Option 3</option>
+                    </select>
+                    <i></i>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-5">
+                  <label class="label-input100" for="Prioridad">Categoria *</label>
+                  <div class="content-select">
+                    <select>
+                      <option>Option 1</option>
+                      <option>Option 2</option>
+                      <option>Option 3</option>
+                    </select>
+                    <i></i>
+                  </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                  <label class="label-input100" for="Prioridad">Subcategoria</label>
+                  <div class="content-select">
+                    <select>
+                      <option>Option 1</option>
+                      <option>Option 2</option>
+                      <option>Option 3</option>
+                    </select>
+                    <i></i>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-10">
+                  <label class="label-input100" for="Prioridad">Descripcion *</label>
+                  <div class="wrap-input100 validate-input">
+                    <textarea id="Prioridad" class="input-form" name="email" placeholder="Escriba la descripcion de su problema..."></textarea>
+                    <span class="focus-input100"></span>
+                  </div>
+                </div>
+                <div class="col-md-2"></div>
+              </div>
+              <div class="row">
+                <div class="col-md-5">
+                  <label class="label-input100" for="Prioridad">Prioridad</label>
+                  <div class="content-select">
+                    <select>
+                      <option>Option 1</option>
+                      <option>Option 2</option>
+                      <option>Option 3</option>
+                    </select>
+                    <i></i>
+                  </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                  <label class="label-input100" for="Prioridad">IP</label>
+                  <div class="wrap-input100 validate-input">
+                    <input id="Prioridad" class="input-form" type="text" name="email" placeholder="Eg. example@email.com">
+                    <span class="focus-input100"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-10">
+                  <label class="label-input100" for="Titulo">Adjuntos</label>
+                  <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
+                    <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
+                  </div>
+                  <div class="files-list" *ngFor="let file of files;let i= index">
+                    <p> {{ file }} </p>
+                    <button class="delete-file" (click)="deleteAttachment(i)">
+                      <img src="../../assets/Recycle_Bin_Full.png">
+                    </button>
+                  </div>
+                </div>
+                <div class="col-md-2"></div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <button class="btn btn--radius-2 btn--blue" type="submit" id="btnLimpiar">Limpiar</button>
+                </div>
+                <div class="col-md-3">
+                  <button class="btn btn--radius-2 btn--green" type="submit" id="btnGuardar">Guardar</button>
+                </div>
+                <div class="col-md-2"></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-          <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-7">
-              <label class="label-input100" for="Titulo">Titulo *</label>
-              <div class="wrap-input100 validate-input">
-                <input id="Titulo" class="input100" type="text" name="Titulo" placeholder="Escriba el titulo de su incidente">
-                <span class="focus-input100"></span>
-              </div>
-            </div>
-            <div class="col-md-2"></div>
-          </div>
-          <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-3">
-              <label class="label-input100" for="Prioridad">Departamento *</label>
-              <div class="wrap-input100 validate-input">
-                <input id="Prioridad" class="input100" type="text" name="email" placeholder="Eg. example@email.com">
-                <span class="focus-input100"></span>
-              </div>
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-3">
-              <label class="label-input100" for="Prioridad">Sucursal *</label>
-              <div class="wrap-input100 validate-input">
-                <input id="Prioridad" class="input100" type="text" name="email" placeholder="Eg. example@email.com">
-                <span class="focus-input100"></span>
-              </div>
-            </div>
-            <div class="col-md-2"></div>
-          </div>
-          <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-3">
-              <label class="label-input100" for="Prioridad">Categoria *</label>
-              <div class="wrap-input100 validate-input">
-                <input id="Prioridad" class="input100" type="text" name="email" placeholder="Eg. example@email.com">
-                <span class="focus-input100"></span>
-              </div>
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-3">
-              <label class="label-input100" for="Prioridad">Subcategoria</label>
-              <div class="wrap-input100 validate-input">
-                <input id="Prioridad" class="input100" type="text" name="email" placeholder="Eg. example@email.com">
-                <span class="focus-input100"></span>
-              </div>
-            </div>
-            <div class="col-md-2"></div>
-          </div>
-          <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-7">
-              <label class="label-input100" for="Prioridad">Descripcion *</label>
-              <div class="wrap-input100 validate-input">
-                <textarea id="Prioridad" class="input100" name="email" placeholder="Escriba la descripcion de su problema..."></textarea>
-                <span class="focus-input100"></span>
-              </div>
-            </div>
-            <div class="col-md-3"></div>
-          </div>
-          <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-3">
-              <label class="label-input100" for="Prioridad">Prioridad</label>
-              <div class="wrap-input100 validate-input">
-                <input id="Prioridad" class="input100" type="text" name="email" placeholder="Eg. example@email.com">
-                <span class="focus-input100"></span>
-              </div>
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-3">
-              <label class="label-input100" for="Prioridad">IP</label>
-              <div class="wrap-input100 validate-input">
-                <input id="Prioridad" class="input100" type="text" name="email" placeholder="Eg. example@email.com">
-                <span class="focus-input100"></span>
-              </div>
-            </div>
-            <div class="col-md-2"></div>
-          </div>
-          <div class="row">
-            <div class="col-md-5"></div>
-            <div class="col-md-3">
-              <label class="label-input100" for="Titulo">Adjuntos</label>
-              <div class="wrap-input100 validate-input">
-                <input id="Titulo" class="input100" type="text" name="Titulo" placeholder="Eg. example@email.com">
-                <span class="focus-input100"></span>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-4">
-              <button class="btn btn--radius-2 btn--blue" type="submit" id="btnLimpiar">Limpiar</button>
-            </div>
-            <div class="col-md-3">
-              <button class="btn btn--radius-2 btn--green" type="submit" id="btnGuardar">Guardar</button>
-            </div>
-            <div class="col-md-2"></div>
-          </div>
-        </div>
-      </div>
       </div>
     </div>
-  </section>
+</section>
 </div>
