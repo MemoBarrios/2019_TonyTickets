@@ -18,6 +18,7 @@ import { ReportesComponent } from './reportes/reportes.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { CapturaComponent } from './tickets/captura/captura.component';
 import { DragDropDirective } from './tickets/captura/drag-drop.directive';
+import { HistorialComponent } from './tickets/captura/historial/historial.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DragDropDirective } from './tickets/captura/drag-drop.directive';
     ReportesComponent,
     UsuariosComponent,
     CapturaComponent,
-    DragDropDirective
+    DragDropDirective,
+    HistorialComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
