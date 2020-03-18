@@ -62,121 +62,141 @@
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-8">
-              <div class="row">
-                <div class="col-md-10">
-                  <label class="label-input100" for="Titulo">Titulo *</label>
-                  <div class="wrap-input100 validate-input">
-                    <input id="Titulo" class="input-form" type="text" name="Titulo" placeholder="Escriba el titulo de su incidente">
-                    <span class="focus-input100"></span>
+              <form (submit)="guardaCaptura()" [formGroup]="capturaTicketForm">
+                <div class="row">
+                  <div class="col-md-10">
+                    <label class="label-input100" for="Titulo">Titulo *</label>
+                    <div class="wrap-input100 validate-input">
+                      <input formControlName="titulo" id="Titulo" class="input-form" type="text" placeholder="Escriba el titulo de su incidente">
+                      <span class="focus-input100"></span>
+                    </div>
+                    <!-- Validaciones -->
+                    <div *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)" class="alert alert-danger">
+                      <div *ngIf="titulo.errors.required">
+                        El titulo del ticket es requerido.
+                      </div>
+                    </div>
+                    <!-- Validaciones -->
+                  </div>
+                  <div class="col-md-2"></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-5">
+                    <label class="label-input100" for="Prioridad">Departamento *</label>
+                    <div class="content-select">
+                      <select formControlName="departamento" (change)="consultaCategoriasXDep()">
+                        <option value="" disabled selected>Selecciona un departamento</option>
+                        <option *ngFor="let dep of dtDepartamentos" [ngValue]="dep">{{dep.nombre}}</option>
+                      </select>
+                      <i></i>
+                    </div>
+                    <!-- Validaciones -->
+                    <!--<div *ngIf="departamento.invalid && (departamento.dirty || departamento.touched)" class="alert alert-danger">
+                      <div *ngIf="departamento.errors.required">
+                        El departamento es requerido.
+                      </div>
+                    </div>-->
+                    <!-- Validaciones -->
+                  </div>
+                  <div class="col-md-1"></div>
+                  <div class="col-md-5">
+                    <label class="label-input100" for="Prioridad">Sucursal *</label>
+                    <div class="content-select">
+                      <select formControlName="sucursal">
+                        <option value="" disabled selected>Selecciona una sucursal</option>
+                        <option *ngFor="let suc of dtSucursales" [ngValue]="suc">{{suc.clave}} - {{suc.nombre}}</option>
+                      </select>
+                      <i></i>
+                    </div>
                   </div>
                 </div>
-                <div class="col-md-2"></div>
-              </div>
-              <div class="row">
-                <div class="col-md-5">
-                  <label class="label-input100" for="Prioridad">Departamento *</label>
-                  <div class="content-select">
-                    <select>
-                      <option>Option 1</option>
-                      <option>Option 2</option>
-                      <option>Option 3</option>
-                    </select>
-                    <i></i>
+                <div class="row">
+                  <div class="col-md-5">
+                    <label class="label-input100" for="Prioridad">Categoria *</label>
+                    <div class="content-select">
+                      <select formControlName="categoria" (change)="consultaSubcategoriasXCat()">
+                        <option [ngValue]="null" disabled selected>Selecciona una categoria</option>
+                        <option *ngFor="let categoria of dtCategorias" [ngValue]="categoria">{{categoria.nombre}}</option>
+                      </select>
+                      <i></i>
+                    </div>
+                  </div>
+                  <div class="col-md-1"></div>
+                  <div class="col-md-5">
+                    <label class="label-input100" for="Prioridad">Subcategoria</label>
+                    <div class="content-select">
+                      <select formControlName="subcategoria">
+                        <option [value]="null" disabled selected>Selecciona una subcategoria</option>
+                        <option *ngFor="let subcatego of dtSubcategorias" [ngValue]="subcatego">{{subcatego.nombre}}</option>
+                      </select>
+                      <i></i>
+                    </div>
                   </div>
                 </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-5">
-                  <label class="label-input100" for="Prioridad">Sucursal *</label>
-                  <div class="content-select">
-                    <select>
-                      <option>Option 1</option>
-                      <option>Option 2</option>
-                      <option>Option 3</option>
-                    </select>
-                    <i></i>
+                <div class="row">
+                  <div class="col-md-10">
+                    <label class="label-input100" for="Prioridad">Descripcion *</label>
+                    <div class="wrap-input100 validate-input">
+                      <textarea formControlName="descripcion" id="descripcion" class="input-form" name="email" placeholder="Escriba la descripcion de su problema..."></textarea>
+                      <span class="focus-input100"></span>
+                    </div>
+                    <!-- Validaciones -->
+                    <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)" class="alert alert-danger">
+                      <div *ngIf="descripcion.errors.required">
+                        La descripcion del ticket es requerida.
+                      </div>
+                      <div *ngIf="descripcion.errors.minlength">
+                        Se requiere una descripcion mas amplia.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-2"></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-5">
+                    <label class="label-input100" for="Prioridad">Prioridad</label>
+                    <div class="content-select">
+                      <select formControlName="prioridad">
+                        <option *ngFor="let p of prioridades" [value]="p.value">{{p.text}}</option>
+                      </select>
+                      <i></i>
+                    </div>
+                  </div>
+                  <div class="col-md-1"></div>
+                  <div class="col-md-5">
+                    <label class="label-input100" for="Prioridad">IP</label>
+                    <div class="wrap-input100 validate-input">
+                      <input formControlName="ip" id="Prioridad" class="input-form" type="text" name="email" placeholder="Ej. 10.105.17.46">
+                      <span class="focus-input100"></span>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-md-5">
-                  <label class="label-input100" for="Prioridad">Categoria *</label>
-                  <div class="content-select">
-                    <select>
-                      <option>Option 1</option>
-                      <option>Option 2</option>
-                      <option>Option 3</option>
-                    </select>
-                    <i></i>
+                <div class="row">
+                  <div class="col-md-11">
+                    <label class="label-input100" for="Titulo">Adjuntos</label>
+                    <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
+                      <input formControlName="adjuntos" hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
+                    </div>
+                    <div class="files-list" *ngFor="let file of files;let i= index">
+                      <p> {{ file }} </p>
+                      <button class="delete-file" (click)="deleteAttachment(i)">
+                        <img src="../../assets/Recycle_Bin_Full.png">
+                      </button>
+                    </div>
                   </div>
+                  <div class="col-md-1"></div>
                 </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-5">
-                  <label class="label-input100" for="Prioridad">Subcategoria</label>
-                  <div class="content-select">
-                    <select>
-                      <option>Option 1</option>
-                      <option>Option 2</option>
-                      <option>Option 3</option>
-                    </select>
-                    <i></i>
+                <div class="row">
+                  <div class="col-md-1"></div>
+                  <div class="col-md-5">
+                    <button (click)="refrescar()" class="btn btn--radius-2 btn--blue" type="button" id="btnRefrescar">Refrescar</button>
                   </div>
+                  <div class="col-md-1"></div>
+                  <div class="col-md-5">
+                    <button [disabled]="capturaTicketForm.invalid" class="btn btn--radius-2 btn--green" type="submit" id="btnGuardar">Guardar</button>
+                  </div>_
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-md-10">
-                  <label class="label-input100" for="Prioridad">Descripcion *</label>
-                  <div class="wrap-input100 validate-input">
-                    <textarea id="Prioridad" class="input-form" name="email" placeholder="Escriba la descripcion de su problema..."></textarea>
-                    <span class="focus-input100"></span>
-                  </div>
-                </div>
-                <div class="col-md-2"></div>
-              </div>
-              <div class="row">
-                <div class="col-md-5">
-                  <label class="label-input100" for="Prioridad">Prioridad</label>
-                  <div class="content-select">
-                    <select>
-                      <option>Option 1</option>
-                      <option>Option 2</option>
-                      <option>Option 3</option>
-                    </select>
-                    <i></i>
-                  </div>
-                </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-5">
-                  <label class="label-input100" for="Prioridad">IP</label>
-                  <div class="wrap-input100 validate-input">
-                    <input id="Prioridad" class="input-form" type="text" name="email" placeholder="Eg. example@email.com">
-                    <span class="focus-input100"></span>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-10">
-                  <label class="label-input100" for="Titulo">Adjuntos</label>
-                  <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
-                    <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
-                  </div>
-                  <div class="files-list" *ngFor="let file of files;let i= index">
-                    <p> {{ file }} </p>
-                    <button class="delete-file" (click)="deleteAttachment(i)">
-                      <img src="../../assets/Recycle_Bin_Full.png">
-                    </button>
-                  </div>
-                </div>
-                <div class="col-md-2"></div>
-              </div>
-              <div class="row">
-                <div class="col-md-4">
-                  <button class="btn btn--radius-2 btn--blue" type="submit" id="btnLimpiar">Limpiar</button>
-                </div>
-                <div class="col-md-3">
-                  <button class="btn btn--radius-2 btn--green" type="submit" id="btnGuardar">Guardar</button>
-                </div>
-                <div class="col-md-2"></div>
-              </div>
+              </form>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -19,6 +19,10 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { CapturaComponent } from './tickets/captura/captura.component';
 import { DragDropDirective } from './tickets/captura/drag-drop.directive';
 import { HistorialComponent } from './tickets/captura/historial/historial.component';
+import { LoginComponent } from './login/login.component';
+import { GeneralesService } from './services/generales.service';
+import { DepartamentosService } from './services/departamentos.service';
+import { CategoriasService } from './services/categorias.service';
 
 @NgModule({
   declarations: [
@@ -35,12 +39,14 @@ import { HistorialComponent } from './tickets/captura/historial/historial.compon
     UsuariosComponent,
     CapturaComponent,
     DragDropDirective,
-    HistorialComponent
+    HistorialComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'perfil', component: PerfilComponent },
@@ -49,10 +55,11 @@ import { HistorialComponent } from './tickets/captura/historial/historial.compon
       { path: 'reportes', component: ReportesComponent },
       { path: 'usuarios', component: UsuariosComponent },
       { path: 'incidentes/captura', component: CapturaComponent },
-      { path: 'solicitudes/captura', component: CapturaComponent }
+      { path: 'solicitudes/captura', component: CapturaComponent },
+      { path: 'login', component: LoginComponent }
     ])
   ],
-  providers: [],
+  providers: [GeneralesService, DepartamentosService, CategoriasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
