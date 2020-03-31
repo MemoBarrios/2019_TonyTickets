@@ -23,6 +23,7 @@ import { LoginComponent } from './login/login.component';
 import { GeneralesService } from './services/generales.service';
 import { DepartamentosService } from './services/departamentos.service';
 import { CategoriasService } from './services/categorias.service';
+import { TicketsService } from './services/tickets.service';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,7 @@ import { CategoriasService } from './services/categorias.service';
       { path: 'login', component: LoginComponent }
     ])
   ],
-  providers: [GeneralesService, DepartamentosService, CategoriasService],
+  providers: [GeneralesService, DepartamentosService, CategoriasService, TicketsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

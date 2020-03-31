@@ -9,6 +9,8 @@ import { IDepartamento } from 'src/app/interfaces/IDepartamento';
 import { CategoriasService } from 'src/app/services/categorias.service';
 import { ICategoria } from 'src/app/interfaces/ICategoria';
 import { ISubcategoria } from 'src/app/interfaces/ISubcategoria';
+import { TicketsService } from 'src/app/services/tickets.service';
+import { IIncidente } from 'src/app/interfaces/IIncidente';
 
 @Component({
     selector: 'app-captura',
@@ -18,7 +20,7 @@ import { ISubcategoria } from 'src/app/interfaces/ISubcategoria';
 /** captura component*/
 export class CapturaComponent {
     /** captura ctor */
-  constructor(private formBuilder: FormBuilder, private generalesService: GeneralesService, private departamentosService: DepartamentosService, private categoriasService: CategoriasService ) {
+  constructor(private formBuilder: FormBuilder, private generalesService: GeneralesService, private departamentosService: DepartamentosService, private categoriasService: CategoriasService, private ticketsService: TicketsService ) {
 
   }
 
@@ -31,6 +33,7 @@ export class CapturaComponent {
     this.consultaSucursalesActivas(2, "000");
     this.consultaDepartamentos();
     this.categoria.disable();
+    this.subcategoria.disable();
   }
 
   get titulo() {
@@ -59,26 +62,34 @@ export class CapturaComponent {
   dtDepartamentos: IDepartamento[];
   dtCategorias: ICategoria[];
   dtSubcategorias: ISubcategoria[];
+  dtIncidente: IIncidente;
   
   capturaTicketForm = this.formBuilder.group({
+    compania: [2],
+    tipo_Ticket: ['I'],
     titulo: ['', [Validators.required]],
     departamento: ['', [Validators.required]],
     sucursal: ['', [Validators.required]],
-    categoria: [null, [Validators.required]],
-    subcategoria: [null],
+    categoria: ['', [Validators.required]],
+    subcategoria: [''],
     descripcion: ['', [Validators.required, Validators.minLength(20)]],
     prioridad: [Prioridad.Baja],
     ip: [''],
-    adjuntos: ['']
+    adjuntos: [''],
+    id_Usuario: [1],
+    id_Estatus: [2],
+    id_Fecha: new Date().toLocaleString(),
+    fecha_Cierre: ['1900-01-01']
   });
 
   refrescar() {
     this.capturaTicketForm.patchValue({
+      compania: 2,
       titulo: '',
       departamento: '',
       sucursal: '',
-      categoria: null,
-      subcategoria: null,
+      categoria: '',
+      subcategoria: '',
       descripcion: '',
       prioridad: Prioridad.Baja,
       ip: '',
@@ -88,6 +99,16 @@ export class CapturaComponent {
 
   guardaCaptura() {
     console.log(this.capturaTicketForm.value);
+
+    const ticket: IIncidente = Object.assign({}, this.capturaTicketForm.value);
+
+    console.log(ticket);
+
+    //if (this.capturaTicketForm.valid) {
+      this.ticketsService.AltaIncidente(ticket)
+        .subscribe(IncidenteDesdeWS => { this.dtIncidente = IncidenteDesdeWS }, error => console.error(error));
+    ////}
+    //console.log(this.dtIncidente);
   }
 
   uploadFile(event) {
@@ -96,6 +117,7 @@ export class CapturaComponent {
       this.files.push(element.name)
     }  
   }
+
   deleteAttachment(index) {
     this.files.splice(index, 1)
   }
@@ -111,10 +133,11 @@ export class CapturaComponent {
   }
 
   consultaCategoriasXDep() {
-    let dep: IDepartamento = this.departamento.value;
 
-    if (dep.clave != '' && dep != undefined) {
-      this.categoriasService.getCategoriasXDep(dep.clave)
+    let dep: string = this.departamento.value;
+
+    if (dep != '' && dep != undefined) {
+      this.categoriasService.getCategoriasXDep(dep)
         .subscribe(categoriasDesdeWS => {
         this.dtCategorias = categoriasDesdeWS
           if (this.dtCategorias.length > 0) {
@@ -128,10 +151,10 @@ export class CapturaComponent {
   }
 
   consultaSubcategoriasXCat() {
-    let catego: ICategoria = this.categoria.value;
+    let catego: string = this.categoria.value;
 
-    if (catego.clave != '' && catego != undefined) {
-      this.categoriasService.getSubcategoriasXCat(catego.clave)
+    if (catego != '' && catego != undefined) {
+      this.categoriasService.getSubcategoriasXCat(catego)
         .subscribe(subcategoriasDesdeWS => {
           this.dtSubcategorias = subcategoriasDesdeWS
           if (this.dtSubcategorias.length > 0) {

@@ -25,6 +25,7 @@ namespace TonyTickets
             services.AddScoped<GeneralesRepository>();
             services.AddScoped<DepartamentosRepository>();
             services.AddScoped<CategoriasRepository>();
+            services.AddScoped<TicketsRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // In production, the Angular files will be served from this directory

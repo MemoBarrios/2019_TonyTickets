@@ -86,7 +86,7 @@
                     <div class="content-select">
                       <select formControlName="departamento" (change)="consultaCategoriasXDep()">
                         <option value="" disabled selected>Selecciona un departamento</option>
-                        <option *ngFor="let dep of dtDepartamentos" [ngValue]="dep">{{dep.nombre}}</option>
+                        <option *ngFor="let dep of dtDepartamentos" [ngValue]="dep.clave">{{dep.nombre}}</option>
                       </select>
                       <i></i>
                     </div>
@@ -104,7 +104,7 @@
                     <div class="content-select">
                       <select formControlName="sucursal">
                         <option value="" disabled selected>Selecciona una sucursal</option>
-                        <option *ngFor="let suc of dtSucursales" [ngValue]="suc">{{suc.clave}} - {{suc.nombre}}</option>
+                        <option *ngFor="let suc of dtSucursales" [ngValue]="suc.clave">{{suc.clave}} - {{suc.nombre}}</option>
                       </select>
                       <i></i>
                     </div>
@@ -115,8 +115,8 @@
                     <label class="label-input100" for="Prioridad">Categoria *</label>
                     <div class="content-select">
                       <select formControlName="categoria" (change)="consultaSubcategoriasXCat()">
-                        <option [ngValue]="null" disabled selected>Selecciona una categoria</option>
-                        <option *ngFor="let categoria of dtCategorias" [ngValue]="categoria">{{categoria.nombre}}</option>
+                        <option value="" disabled selected>Selecciona una categoria</option>
+                        <option *ngFor="let categoria of dtCategorias" [ngValue]="categoria.clave">{{categoria.nombre}}</option>
                       </select>
                       <i></i>
                     </div>
@@ -126,8 +126,8 @@
                     <label class="label-input100" for="Prioridad">Subcategoria</label>
                     <div class="content-select">
                       <select formControlName="subcategoria">
-                        <option [value]="null" disabled selected>Selecciona una subcategoria</option>
-                        <option *ngFor="let subcatego of dtSubcategorias" [ngValue]="subcatego">{{subcatego.nombre}}</option>
+                        <option value="" disabled selected>Selecciona una subcategoria</option>
+                        <option *ngFor="let subcatego of dtSubcategorias" [ngValue]="subcatego.clave">{{subcatego.nombre}}</option>
                       </select>
                       <i></i>
                     </div>
@@ -193,8 +193,8 @@
                   </div>
                   <div class="col-md-1"></div>
                   <div class="col-md-5">
-                    <button [disabled]="capturaTicketForm.invalid" class="btn btn--radius-2 btn--green" type="submit" id="btnGuardar">Guardar</button>
-                  </div>_
+                    <button class="btn btn--radius-2 btn--green" type="submit" id="btnGuardar">Guardar</button>
+                  </div>
                 </div>
               </form>
             </div>

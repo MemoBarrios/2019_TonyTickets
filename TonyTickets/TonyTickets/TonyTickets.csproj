@@ -29,7 +29,10 @@
   <ItemGroup>
     <None Remove="ClientApp\src\app\interfaces\ICategoria.ts" />
     <None Remove="ClientApp\src\app\interfaces\IDepartamento.ts" />
+    <None Remove="ClientApp\src\app\interfaces\IIncidente.ts" />
+    <None Remove="ClientApp\src\app\interfaces\ISolicitud.ts" />
     <None Remove="ClientApp\src\app\interfaces\ISubcategoria.ts" />
+    <None Remove="ClientApp\src\app\interfaces\ITicket.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,7 +43,10 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\interfaces\ICategoria.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\interfaces\IDepartamento.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\interfaces\IIncidente.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\interfaces\ISolicitud.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\interfaces\ISubcategoria.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\interfaces\ITicket.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

@@ -20,10 +20,10 @@ namespace TonyTickets.Controllers
             _ticketsRepository = ticketsRepository;
         }
 
-        //[HttpPost]
-        //public async Task GuardaIncidente([FromBody] Incidente incidente)
-        //{
-        //    await _ticketsRepository.InsertarIncidente(incidente);
-        //}
+        [HttpPost("{action}")]
+        public async Task<Incidente> AltaIncidente([FromBody] Incidente incidente)
+        {
+            return await _ticketsRepository.AltaIncidente(incidente);
+        }
     }
 }
